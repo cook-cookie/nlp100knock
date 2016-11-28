@@ -17,7 +17,6 @@ if __name__ == "__main__":
     words = list_zipped[0]
     counts = list_zipped[1]
 
-    # グラフで使うフォント情報(デフォルトのままでは日本語が表示できない)
     fp = FontProperties(
         fname=r'/Library/Fonts/ヒラギノ丸ゴ ProN W4.ttc', size=14
     )
@@ -38,25 +37,22 @@ if __name__ == "__main__":
 
     # x軸の値の範囲の調整
     plt.xlim(
-        xmin=-1, xmax=size  # -1〜10（左右に1の余裕を持たせて見栄え良く）
+        xmin=-1, xmax=size  # -1〜10（左右に1の余裕）
     )
 
-    # グラフのタイトル、ラベル指定
     plt.title(
-        '37. 頻度上位10語',  # タイトル
-        fontproperties=fp  # 使うフォント情報
+        '頻度上位10語',
+        fontproperties=fp
     )
     plt.xlabel(
-        '出現頻度が高い10語',  # x軸ラベル
-        fontproperties=fp  # 使うフォント情報
+        '出現頻度が高い10語',
+        fontproperties=fp
     )
     plt.ylabel(
-        '出現頻度',  # y軸ラベル
-        fontproperties=fp  # 使うフォント情報
+        '出現頻度',
+        fontproperties=fp
     )
 
-    # グリッドを表示
     plt.grid(axis='y')
 
-    # 表示
     plt.show()

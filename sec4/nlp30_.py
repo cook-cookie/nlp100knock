@@ -1,3 +1,4 @@
+from pprint import pprint
 import re
 
 
@@ -23,4 +24,4 @@ def inList(filename):
 
 
 if __name__ == '__main__':
-    print(inList('neko.txt.mecab_m'))
+    pprint(inList('neko.txt.mecab_m'))
