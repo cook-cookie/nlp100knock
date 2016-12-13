@@ -16,7 +16,7 @@ if __name__ == "__main__":
         fname=r'/Library/Fonts/ヒラギノ丸ゴ ProN W4.ttc', size=14
     )
 
-    plt.scatter(
+    plt.plot(
         range(1, len(counts) + 1),
         counts
     )
