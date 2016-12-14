@@ -5,7 +5,7 @@ from MorphClass import Chunk, Morph
 import pandas as pd
 
 
-def morphChunk(filename):
+def morphChunk(filename='neko.txt.cabocha'):
     with open(filename) as f:
         sentences = []
         sentence = []
