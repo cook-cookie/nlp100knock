@@ -7,6 +7,6 @@ class Morph:
 
 class Chunk:
     def __init__(self):
-        self.morphs = []
+        self.morphs = [] #str
         self.dst = 0
-        self.srcs = []
+        self.srcs = []   #int
