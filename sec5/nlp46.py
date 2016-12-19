@@ -22,7 +22,6 @@ def research_case_mod():
                         break
                 case = []
                 for src in chunk.srcs:
-                    # if '助詞' in [morph.pos for morph in sentence[src].morphs[-1]]:
                     case_frame = []
                     if len(sentence[src].morphs) != 0 and '助詞' in sentence[src].morphs[-1].pos:
                         case_frame.append(sentence[src].morphs[-1].surface)
