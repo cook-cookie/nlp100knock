@@ -21,7 +21,6 @@ def research_case():
                         break
                 case = []
                 for src in chunk.srcs:
-                    # if '助詞' in [morph.pos for morph in sentence[src].morphs[-1]]:
                     if len(sentence[src].morphs) != 0 and '助詞' in sentence[src].morphs[-1].pos:
                         case.append(sentence[src].morphs[-1].surface)
                 if len(case) != 0:
