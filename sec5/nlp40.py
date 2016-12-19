@@ -4,7 +4,7 @@ from MorphClass import Morph
 import re
 
 
-def morphList(filename):
+def morphList(filename='neko.txt.cabocha'):
     with open(filename) as f:
         sentence = []
         sentences = []
