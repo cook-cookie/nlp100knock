@@ -6,6 +6,9 @@ def separate_by_sentence(filename='nlp.txt'):
     with open(filename) as f:
         for line in f:
             line = line.strip()
+            if len(line) == 0:
+                yield ''
+                continue
             while len(line) > 0:
                 match = pattern.match(line)
                 if match:
