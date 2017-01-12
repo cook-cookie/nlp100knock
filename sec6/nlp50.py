@@ -17,5 +17,5 @@ def separate_by_sentence(filename='nlp.txt'):
 
 
 if __name__ == '__main__':
-    for line in separate_by_sentence():
-        print(line)
+    for lines in separate_by_sentence():
+        print(lines)
