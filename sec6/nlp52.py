@@ -9,4 +9,3 @@ if __name__ == '__main__':
         for word in separate_by_space(sentence):
             word_mod = re.sub(r'[^a-z]', '', word.lower())
             print(word + '\t' + stemmer.stem(word_mod))
-        print('')
