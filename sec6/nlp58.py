@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 else:
                     dict_dobj[idx] = dep.find('./dependent').text
 
-        for idx, pred in sorted(dict_pred.items(), key=lambda x: x[0]):
+        for idx, pred in sorted(dict_pred.items(), key=lambda x: int(x[0])):
             nsubj = dict_nsubj.get(idx)
             dobj = dict_dobj.get(idx)
             if nsubj and dobj:

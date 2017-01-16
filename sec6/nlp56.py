@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as ET
 
+import re
+
 target = 'nlp.txt.xml'
 
 if __name__ == '__main__':
@@ -31,7 +33,7 @@ if __name__ == '__main__':
                 print('[' + rep_text + '] (', end='')
                 org_rest = end_id - token_id
 
-            print(token.findtext('word'), end='')
+            print(re.sub(r' ([,.:])', r'\1', token.findtext('word')), end='')
 
             # 置換の終わりにカッコ閉じ
             if org_rest > 0:

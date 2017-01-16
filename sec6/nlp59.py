@@ -44,4 +44,5 @@ if __name__ == '__main__':
     for parse in ET.parse(target).iterfind('./document/sentences/sentence/parse'):
         result = []
         search_np(parse.text.strip(), result)
+        result = [s.replace('-LRB- ','(').replace(' -RRB-', ')') for s in result]
         print(*result, sep='\n')
