@@ -24,22 +24,24 @@ if __name__ == '__main__':
     for sentence in ET.parse(target).iterfind('./document/sentences/sentence'):
         sentence_id = int(sentence.get('id'))
         org_rest = 0 # 置換中のtoken数の残り
+        sentence_hoge = ''
 
         for token in sentence.iterfind('./tokens/token'):
             token_id = int(token.get('id'))
 
             if org_rest == 0 and (sentence_id, token_id) in rep_dict:
                 (end_id, rep_text) = rep_dict[(sentence_id, token_id)]
-                print('[' + rep_text + '] (', end='')
+                sentence_hoge += '「' + rep_text + ' ('
                 org_rest = end_id - token_id
 
-            print(re.sub(r' ([,.:])', r'\1', token.findtext('word')), end='')
+            sentence_hoge += token.findtext('word')
 
             # 置換の終わりにカッコ閉じ
             if org_rest > 0:
                 org_rest -= 1
                 if org_rest == 0:
-                    print(') ', end='')
-            print(' ', end='')
+                    sentence_hoge += ')」 '
+            else:
+                sentence_hoge += ' '
 
-        print()
+        print(re.sub(r' ([,.:])', r'\1', sentence_hoge.replace('-LRB- ','(').replace(' -RRB-', ')')))
