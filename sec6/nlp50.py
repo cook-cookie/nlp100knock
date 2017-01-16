@@ -2,7 +2,7 @@ import re
 
 
 def separate_by_sentence(filename='nlp.txt'):
-    pattern = re.compile(r"(^.*?[\.|\;|\:|\!|\?])\s([A-Z].*)")
+    pattern = re.compile(r"(^.*?[.;:!?])\s([A-Z].*)")
     with open(filename) as f:
         for line in f:
             line = line.strip()

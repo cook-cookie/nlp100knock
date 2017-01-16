@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     for sentence in ET.parse(target).iterfind('./document/sentences/sentence'):
         sentence_id = int(sentence.get('id'))
-        org_rest = 0
+        org_rest = 0 # 置換中のtoken数の残り
 
         for token in sentence.iterfind('./tokens/token'):
             token_id = int(token.get('id'))
@@ -33,6 +33,7 @@ if __name__ == '__main__':
 
             print(token.findtext('word'), end='')
 
+            # 置換の終わりにカッコ閉じ
             if org_rest > 0:
                 org_rest -= 1
                 if org_rest == 0:

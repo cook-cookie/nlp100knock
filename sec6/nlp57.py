@@ -34,5 +34,5 @@ if __name__ == '__main__':
 
                 G.node(id1, label1)
                 G.node(id2, label2)
-                G.edge(id1, id2)
-            G.render('{}'.format(sentence_id))
+                G.edge(id2, id1)
+            G.render('{}'.format(sentence_id), cleanup=True)
