@@ -17,7 +17,9 @@ if __name__ == '__main__':
             bulk_list.append(data_json)
             count += 1
             if count % 10000 == 0:
-                print('{}件登録中'.format(count))
+                print('{}件追加中'.format(count))
+        print('{}件追加完了'.format(count))
+        print('登録作業へ移行します')
         collection.insert_many(bulk_list)
         print('{}件登録完了'.format(count))
 
