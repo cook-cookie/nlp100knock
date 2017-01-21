@@ -7,9 +7,12 @@ if __name__ == '__main__':
     while True:
         try:
             s = input('enter artist name: ')
-            for elem in pickle.loads(db.Get(s.encode())):
-                print('value: ' + elem['value'])
-                print('count: ' + str(elem['count']))
+            if pickle.loads(db.Get(s.encode())):
+                for elem in pickle.loads(db.Get(s.encode())):
+                    print('value: ' + elem['value'])
+                    print('count: ' + str(elem['count']))
+            else:
+                print('no much')
         except KeyError:
             print('error')
         except KeyboardInterrupt:
