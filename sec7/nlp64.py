@@ -1,7 +1,6 @@
 import gzip
 import json
 import pymongo
-from pymongo import MongoClient
 
 if __name__ == '__main__':
     client = pymongo.MongoClient('localhost', 27017)

@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
             if org_rest == 0 and (sentence_id, token_id) in rep_dict:
                 (end_id, rep_text) = rep_dict[(sentence_id, token_id)]
-                sentence_hoge += '「' + rep_text + ' ('
+                sentence_hoge += '「 ' + rep_text + ' ( '
                 org_rest = end_id - token_id
 
             sentence_hoge += token.findtext('word')
@@ -40,8 +40,8 @@ if __name__ == '__main__':
             if org_rest > 0:
                 org_rest -= 1
                 if org_rest == 0:
-                    sentence_hoge += ')」 '
-            else:
-                sentence_hoge += ' '
+                    sentence_hoge += ' )」'
+            # else:
+            sentence_hoge += ' '
 
-        print(re.sub(r' ([,.:])', r'\1', sentence_hoge.replace('-LRB- ','(').replace(' -RRB-', ')')))
+        print(re.sub(r' ([,.:])', r'\1', sentence_hoge.replace('-LRB- ','(').replace(' -RRB-', ')')).rstrip())
