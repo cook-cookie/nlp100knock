@@ -4,15 +4,15 @@ import pymongo
 
 if __name__ == '__main__':
     client = pymongo.MongoClient('localhost', 27017)
-    db = client['mgdb']
+    db = client.mgdb
     collection = db.artist
     count = 0
 
     print('データベース作成開始')
-    with gzip.open(filename='artist.json.gz') as f:
+    with gzip.open('artist.json.gz', 'rt') as f:
         bulk_list = []
-        for line in f:
-            data_json = json.loads(line.decode().rstrip())
+        for line in f.readlines():
+            data_json = json.loads(line)
             bulk_list.append(data_json)
             count += 1
             if count % 10000 == 0:
