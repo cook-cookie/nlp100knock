@@ -2,14 +2,13 @@ import pymongo
 import re
 
 import bottle
+from bottle import route, run, template, request
 
 bottle.debug(True)
 
 client = pymongo.MongoClient('localhost', 27017)
 db = client.mgdb
 collection = db.artist
-
-from bottle import route, run, template, request
 
 
 @route('/')
