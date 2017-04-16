@@ -2,14 +2,19 @@ def check(str: str) -> bool:
     return str.lower() in stop_words
 
 
-if __name__ == '__main__':
+def make_stop_list():
     stop_list = []  # Ranks.lnによるStop wordのリスト
 
     with open('stop_words.txt', 'r') as f:
         for word in f.readlines():
             stop_list.append(word.rstrip())
 
-    stop_words = set(stop_list)
+    return set(stop_list)
+
+
+if __name__ == '__main__':
+    stop_words = make_stop_list()
+
     print(stop_words)
 
     # 正しく検出されることのテスト
