@@ -3,7 +3,7 @@ def check(str: str) -> bool:
 
 
 if __name__ == '__main__':
-    stop_list = []
+    stop_list = []  # Ranks.lnによるStop wordのリスト
 
     with open('stop_words.txt', 'r') as f:
         for word in f.readlines():
