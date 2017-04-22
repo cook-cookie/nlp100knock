@@ -1,6 +1,6 @@
 import re
 
-with open('identities.txt', 'r') as f:
+with open('features.txt', 'r') as f:
     alphabet_list = []
     for line in f.readlines():
         m = re.search('^[a-zA-Z0-9]{3}$', line)
