@@ -18,7 +18,8 @@ if __name__ == "__main__":
 
     plt.plot(
         range(1, len(counts) + 1),
-        counts
+        counts,
+        'black'
     )
 
     plt.xlim(1, len(counts) + 1)
@@ -34,3 +35,4 @@ if __name__ == "__main__":
     plt.grid(axis='both')
 
     plt.show()
+    plt.savefig('figure_1.pdf', format='pdf', dpi=300)

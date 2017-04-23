@@ -4,9 +4,11 @@
 """
 import collections
 import math
+import pickle
 
 N = 10662  # Change this to present the number of training instances.
 eta0 = 0.1  # Initial learning rate; change this if desired.
+epoch = 10
 
 
 def update(W, X, l, eta):
@@ -21,20 +23,25 @@ def update(W, X, l, eta):
         W[x] -= eta * g
 
 
-def train(fi):
+def train(fi: list, epoch: int) -> dict:
     t = 1
     W = collections.defaultdict(float)
     # Loop for instances.
-    for line in fi:
-        fields = line.strip('\n').split(' ')
-        update(W, fields[1:], float(fields[0]), eta0 / (1 + t / float(N)))
-        t += 1
+    for i in range(epoch):
+        for line in fi:
+            fields = line.strip('\n').split(' ')
+            if fields[0] == '1':
+                update(W, fields[1:], float(1), eta0 / (1 + t / float(N)))
+            else:
+                update(W, fields[1:], float(0), eta0 / (1 + t / float(N)))
+            t += 1
+        # print(W)
     return W
 
 
 if __name__ == '__main__':
     with open('features_mod.txt', 'r') as f:
-        fi = f.read()
+        fi = f.readlines()
 
-    for i in range(10):
-        train(fi)
+    s = train(fi, epoch)
+    pickle.dump(s, open('nlp73_pickle', 'wb'))
