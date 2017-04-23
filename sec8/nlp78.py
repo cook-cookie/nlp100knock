@@ -46,8 +46,10 @@ if __name__ == '__main__':
         print(*calc_scores(Counter(pred_list), N), sep='\t')
         print('----------------------------------------')
 
-    accuracy_average = (score_list[0][0] + score_list[1][0] + score_list[2][0] + score_list[3][0] + score_list[4][0]) / C
-    precision_average = (score_list[0][1] + score_list[1][1] + score_list[2][1] + score_list[3][1] + score_list[4][1]) / C
+    accuracy_average = (
+                       score_list[0][0] + score_list[1][0] + score_list[2][0] + score_list[3][0] + score_list[4][0]) / C
+    precision_average = (score_list[0][1] + score_list[1][1] + score_list[2][1] + score_list[3][1] + score_list[4][
+        1]) / C
     recall_average = (score_list[0][2] + score_list[1][2] + score_list[2][2] + score_list[3][2] + score_list[4][2]) / C
     fscore_average = (score_list[0][3] + score_list[1][3] + score_list[2][3] + score_list[3][3] + score_list[4][3]) / C
     print('平均の正解率, 適合率, 再現率, F1スコア')
