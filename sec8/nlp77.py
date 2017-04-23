@@ -8,7 +8,7 @@ def return_tpfpfntn(sentence: str) -> str:
         return 'FN' if sentence.split('\t')[0] == '+1' else 'TN'
 
 
-def calc_scores(counts: dict) -> tuple:
+def calc_scores(counts: dict, N: int) -> tuple:
     accuracy = (counts['TP'] + counts['TN']) / N
     precision = counts['TP'] / (counts['TP'] + counts['FP'])
     recall = counts['TP'] / (counts['TP'] + counts['FN'])
@@ -28,4 +28,4 @@ if __name__ == '__main__':
         pred_list.append(return_tpfpfntn(sentence))
 
     print('正解率, 適合率, 再現率, F1スコア')
-    print(*calc_scores(Counter(pred_list)), sep='\t')
+    print(*calc_scores(Counter(pred_list), N), sep='\t')

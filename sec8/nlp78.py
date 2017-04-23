@@ -36,19 +36,19 @@ if __name__ == '__main__':
 
         # 学習
         features = train(trainlist, epoch)
-        assert type(features) == dict, 'this object has {} type.'.format(type(features))
+        # assert type(features) == defaultdict, 'this object has {} type.'.format(type(features))
         pred_list = []  # ネガポジ判定結果格納用リスト
         for sentence in testlist[i]:  # testlist[i]: 検証用データ
             assert type(sentence) == str, 'this object has {} type.'.format(type(sentence))
             pred_list.append(check_pred(prediction_enhanced(sentence, features)))  # 予測
         print('正解率, 適合率, 再現率, F1スコア')
-        score_list.append(calc_scores(Counter(pred_list)))
-        print(*calc_scores(Counter(pred_list)), sep='\t')
+        score_list.append(calc_scores(Counter(pred_list), N))
+        print(*calc_scores(Counter(pred_list), N), sep='\t')
         print('----------------------------------------')
 
-    accuracy_average = (score_list[0][0] + score_list[1][0] + score_list[2][0] + score_list[3][0] + score_list[4][0])
-    precision_average = (score_list[0][1] + score_list[1][1] + score_list[2][1] + score_list[3][1] + score_list[4][1])
-    recall_average = (score_list[0][2] + score_list[1][2] + score_list[2][2] + score_list[3][2] + score_list[4][2])
-    fscore_average = (score_list[0][3] + score_list[1][3] + score_list[2][3] + score_list[3][3] + score_list[4][3])
+    accuracy_average = (score_list[0][0] + score_list[1][0] + score_list[2][0] + score_list[3][0] + score_list[4][0]) / C
+    precision_average = (score_list[0][1] + score_list[1][1] + score_list[2][1] + score_list[3][1] + score_list[4][1]) / C
+    recall_average = (score_list[0][2] + score_list[1][2] + score_list[2][2] + score_list[3][2] + score_list[4][2]) / C
+    fscore_average = (score_list[0][3] + score_list[1][3] + score_list[2][3] + score_list[3][3] + score_list[4][3]) / C
     print('平均の正解率, 適合率, 再現率, F1スコア')
     print('{} {} {} {}'.format(accuracy_average, precision_average, recall_average, fscore_average))
