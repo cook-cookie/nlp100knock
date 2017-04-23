@@ -35,8 +35,10 @@ if __name__ == '__main__':
         assert type(trainlist) == list, 'this object has {} type.'.format(type(trainlist))
 
         # 学習
-        features = train(trainlist, epoch)
+        features = train(trainlist, epoch, eta0)
         # assert type(features) == defaultdict, 'this object has {} type.'.format(type(features))
+
+        # 検証
         pred_list = []  # ネガポジ判定結果格納用リスト
         for sentence in testlist[i]:  # testlist[i]: 検証用データ
             assert type(sentence) == str, 'this object has {} type.'.format(type(sentence))

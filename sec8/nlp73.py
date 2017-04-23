@@ -23,7 +23,7 @@ def update(W, X, l, eta):
         W[x] -= eta * g
 
 
-def train(fi: list, epoch: int) -> dict:
+def train(fi: list, epoch: int, eta0: float) -> dict:
     t = 1
     W = collections.defaultdict(float)
     # Loop for instances.
@@ -43,5 +43,5 @@ if __name__ == '__main__':
     with open('features_mod.txt', 'r') as f:
         fi = f.readlines()
 
-    s = train(fi, epoch)
+    s = train(fi, epoch, eta0)
     pickle.dump(s, open('nlp73_pickle', 'wb'))
