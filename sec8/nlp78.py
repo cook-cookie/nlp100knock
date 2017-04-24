@@ -42,7 +42,7 @@ if __name__ == '__main__':
         pred_list = []  # ネガポジ判定結果格納用リスト
         for sentence in testlist[i]:  # testlist[i]: 検証用データ
             assert type(sentence) == str, 'this object has {} type.'.format(type(sentence))
-            pred_list.append(check_pred(prediction_enhanced(sentence, features)))  # 予測
+            pred_list.append(check_pred(prediction_enhanced(sentence, features, border=0.5)))  # 予測
         print('正解率, 適合率, 再現率, F1スコア')
         score_list.append(calc_scores(Counter(pred_list), N // C))
         print(*calc_scores(Counter(pred_list), N // C), sep='\t')
