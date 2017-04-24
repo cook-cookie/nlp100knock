@@ -44,8 +44,8 @@ if __name__ == '__main__':
             assert type(sentence) == str, 'this object has {} type.'.format(type(sentence))
             pred_list.append(check_pred(prediction_enhanced(sentence, features)))  # 予測
         print('正解率, 適合率, 再現率, F1スコア')
-        score_list.append(calc_scores(Counter(pred_list), N))
-        print(*calc_scores(Counter(pred_list), N), sep='\t')
+        score_list.append(calc_scores(Counter(pred_list), N // C))
+        print(*calc_scores(Counter(pred_list), N // C), sep='\t')
         print('----------------------------------------')
 
     accuracy_average = (
