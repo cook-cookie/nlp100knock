@@ -1,5 +1,3 @@
-import bz2
-
 filename_r100 = 'enwiki-20150112-400-r100-10576.txt'
 filename_output = 'nlp80.txt'
 
