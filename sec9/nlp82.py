@@ -4,8 +4,7 @@ fname_input = 'nlp81.txt'
 fname_output = 'nlp82.txt'
 
 # 1行ずつ処理
-with open(fname_input, 'rt') as data_file, \
-        open(fname_output, mode='wt') as out_file:
+with open(fname_input, 'rt') as data_file, open(fname_output, mode='wt') as out_file:
     for i, line in enumerate(data_file):
 
         # 1語ずつ処理
