@@ -35,8 +35,7 @@ with open(fname_countries, 'rt') as data_file:
                 dict_country[words[0]] = [len(words)]
 
 # 1行ずつ処理
-with open(fname_input, 'rt') as data_file, \
-        open(fname_output, mode='wt') as out_file:
+with open(fname_input, 'rt') as data_file, open(fname_output, mode='wt') as out_file:
     for line in data_file:
 
         # 1語ずつチェック
