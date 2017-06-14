@@ -27,7 +27,7 @@ for i in range(len_lines):
     svd_order[svd_index_sorted[i]] = i
     w2v_order[w2v_index_sorted[i]] = i
 
-# スピアマン相関係数算出
+# スピアマン相関係数計算
 total_sh = 0
 total_wh = 0
 for i in range(len_lines):

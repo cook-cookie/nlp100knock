@@ -7,6 +7,7 @@ from multiprocessing import Pool, Process
 import multiprocessing as mp
 import numpy as np
 import pickle
+import time
 import logging
 
 
@@ -29,6 +30,8 @@ def multi(target_list: list) -> list:
 
 
 if __name__ == '__main__':
+    start = time.time()
+
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     model = word2vec.Word2Vec.load('nlp90_train.model')
 
@@ -49,3 +52,6 @@ if __name__ == '__main__':
     with open('nlp92_output.txt', 'wt') as output_file:
         output_file.write(''.join(output_list))
     logging.info('Writing was finished.')
+
+    elapsed_time = time.time() - start
+    logging.info('elapsed_time:{0}'.format(elapsed_time) + '[sec]')
